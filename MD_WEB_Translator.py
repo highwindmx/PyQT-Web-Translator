@@ -31,6 +31,14 @@ class Main(QtWidgets.QMainWindow):
         self.webtab04.setObjectName("dict-必应")
         self.webtab04.load(QtCore.QUrl("http://www.bing.com/dict/"))
 
+        self.webtab05 = QWebView()
+        self.webtab05.setObjectName("dict-Urban")
+        self.webtab05.load(QtCore.QUrl("https://www.urbandictionary.com/"))
+
+        self.webtab06 = QWebView()
+        self.webtab06.setObjectName("dict-Webster")
+        self.webtab06.load(QtCore.QUrl("https://www.merriam-webster.com/dictionary/"))
+
         self.webtab11 = QWebView()
         self.webtab11.setObjectName("Web-搜狗")
         self.webtab11.load(QtCore.QUrl("http://fanyi.sogou.com/"))
@@ -43,13 +51,20 @@ class Main(QtWidgets.QMainWindow):
         self.webtab13.setObjectName("Web-百度")
         self.webtab13.load(QtCore.QUrl("http://fanyi.baidu.com/"))
 
+        self.webtab14 = QWebView()
+        self.webtab14.setObjectName("Web-Wiki")
+        self.webtab14.load(QtCore.QUrl("https://en.wikipedia.org/wiki/"))
+
         self.tabs.addTab(self.webtab01, "搜狗词典")
         self.tabs.addTab(self.webtab02, "有道词典")
         #self.tabs.addTab(self.webtab03, "金山词霸")
         self.tabs.addTab(self.webtab04, "必应词典")
+        self.tabs.addTab(self.webtab05, "UrbanDict")
+        self.tabs.addTab(self.webtab06, "Webster")
         self.tabs.addTab(self.webtab11, "搜狗翻译")
         self.tabs.addTab(self.webtab12, "谷歌翻译")
         self.tabs.addTab(self.webtab13, "百度翻译")
+        self.tabs.addTab(self.webtab14, "维基百科")
 
         self.inputLine = QtWidgets.QLineEdit()
         self.inputLine.setObjectName("LineEditor")
@@ -74,11 +89,15 @@ class Main(QtWidgets.QMainWindow):
             self.webtab12.load(QtCore.QUrl("https://translate.google.cn/#zh-CN/en/" + word))
             self.webtab13.load(QtCore.QUrl("http://fanyi.baidu.com/#zh/en/" + word))
             self.webtab02.load(QtCore.QUrl("http://dict.youdao.com/w/" + word + "/#keyfrom=dict2.top"))
+            self.webtab14.load(QtCore.QUrl("https://zh.wikipedia.org/wiki/" + word))
         else:
             self.webtab11.load(QtCore.QUrl("http://fanyi.sogou.com/?fr=websearch#auto/zh-CHS/" + word))
             self.webtab12.load(QtCore.QUrl("https://translate.google.cn/#en/zh-CN/" + word))
             self.webtab13.load(QtCore.QUrl("http://fanyi.baidu.com/#en/zh/" + word))
             self.webtab02.load(QtCore.QUrl("http://dict.youdao.com/w/eng/" + word + "/#keyfrom=dict2.index"))
+            self.webtab05.load(QtCore.QUrl("https://www.urbandictionary.com/" + word))
+            self.webtab06.load(QtCore.QUrl("https://www.merriam-webster.com/dictionary/" + word))
+            self.webtab14.load(QtCore.QUrl("https://en.wikipedia.org/wiki/" + word))
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
