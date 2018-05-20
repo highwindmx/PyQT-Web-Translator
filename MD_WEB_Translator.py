@@ -55,16 +55,21 @@ class Main(QtWidgets.QMainWindow):
         self.webtab14.setObjectName("Web-Wiki")
         self.webtab14.load(QtCore.QUrl("https://en.wikipedia.org/wiki/"))
 
+        self.webtab15 = QWebView()
+        self.webtab15.setObjectName("Web-OzDict")
+        self.webtab15.load(QtCore.QUrl("https://www.onelook.com/"))
+
         self.tabs.addTab(self.webtab01, "搜狗词典")
         self.tabs.addTab(self.webtab02, "有道词典")
         #self.tabs.addTab(self.webtab03, "金山词霸")
         self.tabs.addTab(self.webtab04, "必应词典")
-        self.tabs.addTab(self.webtab05, "UrbanDict")
-        self.tabs.addTab(self.webtab06, "Webster")
         self.tabs.addTab(self.webtab11, "搜狗翻译")
         self.tabs.addTab(self.webtab12, "谷歌翻译")
         self.tabs.addTab(self.webtab13, "百度翻译")
         self.tabs.addTab(self.webtab14, "维基百科")
+        self.tabs.addTab(self.webtab05, "UrbanDict")
+        self.tabs.addTab(self.webtab06, "Webster")
+        self.tabs.addTab(self.webtab15, "OneLook")
 
         self.inputLine = QtWidgets.QLineEdit()
         self.inputLine.setObjectName("LineEditor")
@@ -98,6 +103,7 @@ class Main(QtWidgets.QMainWindow):
             self.webtab05.load(QtCore.QUrl("https://www.urbandictionary.com/" + word))
             self.webtab06.load(QtCore.QUrl("https://www.merriam-webster.com/dictionary/" + word))
             self.webtab14.load(QtCore.QUrl("https://en.wikipedia.org/wiki/" + word))
+            self.webtab15.load(QtCore.QUrl("https://www.onelook.com/?w=" + word))
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
